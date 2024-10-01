@@ -1,1 +1,333 @@
-/* Your SCSS here. */
+
+/* Base background and font */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0; 
+    background-color: lightgrey;
+}
+
+/* Sticky Navbar */
+section {
+    scroll-margin-top: 60px; 
+}
+
+.sticky-navbar {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    padding: 20px 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    transition: padding 0.3s ease; 
+}
+
+.sticky-navbar.shrink {
+    padding: 2px 0; 
+}
+
+.sticky-navbar h2 {
+    font-size: large;
+    color: white; 
+    align-self: center;
+    margin-left: 10px; 
+}
+
+.sticky-navbar div {
+    margin-left: auto;
+    display: flex;
+}
+
+.sticky-navbar a {
+        font-size: medium;
+        color: white; 
+        text-decoration: none;
+        margin: 0 5px; 
+        align-self: center; 
+        scroll-behavior: smooth;
+}
+.sticky-navbar a:hover {
+    font-weight: bold;
+}
+
+/* Intro Section */
+.Intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height : 650px;
+    padding: 20px;
+    margin: auto;
+}
+
+.Intro h1 {
+    font-size: xx-large;
+    margin: 20px 0;
+}
+
+.Intro p {
+    width: 50%;
+    font-size: large;
+    margin: 20px 0;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.Intro .personal-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(100%);
+
+}
+
+.Intro .personal-links a {
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    
+}
+
+.Intro .personal-links a:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+  
+.Intro .personal-links img {
+    width:75px;
+    height: auto;
+    background-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.Intro .personal-links .resume {
+    width: 100px;
+    height: 40px;
+    border-radius: 10%;
+    background-color: #333;
+    color: white;
+    
+}
+
+.Intro .personal-links a:hover img {
+    transform: scale(1.1);
+}
+ 
+/* Experience Section */
+
+.experience-sheet {
+    h2 {
+        font-size: x-large;
+        margin: 20px 0;
+        color: white;
+    }
+    padding: 20px;
+    height: 100%;
+    background-image: url('https://i.pinimg.com/originals/7a/d0/c9/7ad0c9b192167fbeac6f53ff97a656df.gif');
+}
+
+.experience {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.experience-card {
+    background-color: rgb(105,105,105);
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.experience-card.expanded {
+    width: 90%; /* Expand to cover more width */
+    padding: 40px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    background-color: grey;
+    cursor: default;
+    opacity: 100;
+
+}
+
+.experience-card .location-date{
+    font-size: 12px;
+    font-style: italic;
+}
+
+.experience-card .description {
+    font-size: 14px;
+    margin: 10px 0;
+    display: none; 
+}
+
+.experience-card.expanded .description {
+    display: block;
+}
+
+.blurred {
+    filter: blur(5px); 
+    transition: 0.3 ease; 
+}
+
+/* Close Button for experience card modal */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+
+/* Image Carousel */
+
+.carousel {
+    position: relative;
+    width: 300px; /* Adjust the size as needed */
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.carousel-images img {
+    width: 300px;
+    height: 300px;
+    border-radius: 5%;
+    object-position: center;
+    object-fit: cover;
+    margin: 20px auto;
+    display: none; /* Hide all images initially */
+}
+
+.carousel-images img.active {
+    display: block; /* Show the active image */
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    opacity: 0.5;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* About Me Section */
+
+.about-me h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-me .description {
+    h3 {
+        font-size: large;
+        margin: 40px 0;
+
+    }
+    width: 50%;
+    margin: 30px auto;
+    font-size: large;
+
+}
+
+.about-me .description .technical {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    
+    div {
+        background-color: #333;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+}
+
+/* Footer  with contact my and umbreon */
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    img {
+        width: 90px;
+        height: auto;
+        margin-right: 20px;
+    }
+}
+

@@ -4,10 +4,154 @@
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <title>MP1</title>
     </head>
     <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
+
+        <!-- Sticky Navigation Bar -->
+        <nav class="sticky-navbar">
+            <h2>Bolden Jones</h2>
+            <div>
+                <a href="#home">Home</a>
+                <a href="#experience">Experience</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Home Section -->
+        <section id = "home"></section>
+            <div class="Intro">
+                <h1>Hi, I'm Bolden Jones</h1>
+                <div class="intro-content">
+
+                    <!-- Carousel -->
+                    <section id="carousel" class="carousel">
+                        <div class="carousel-images">
+                            <img src="assets/Headshot.jpg" alt="headshot" class="active">
+                            <img src="assets/me-microsoft.png" alt="me-microsoft">
+                            <img src="assets/me-hiking.png" alt="hiking">
+                            <img src="assets/me.png" alt="me">
+                        </div>
+                        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                        <button class="next" onclick="changeImage(1)">&#10095;</button>
+                    </section>
+
+                    <!-- Personal Links -->
+                    <div class="personal-links">
+                        <a href="https://github.com/boldenj2" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/github.png" alt="github">
+                        </a> 
+                        <a href="https://www.linkedin.com/in/bolden-j-jones/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/linkedin.png" alt="linkedin">
+                        </a>  
+                        <a href="assets/Bolden's Resume.pdf" download="Bolden_Jones_Resume" target="_blank" rel="noopener noreferrer" class='resume'>My Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id = "experience"></section>
+            <div class="experience-sheet">
+                <h2 >Experience</h2>
+                <div class="experience">
+
+                    <!-- Experience Card 1 -->
+                    <div class="experience-card" onclick="openModal(this)">
+                        <h3> Microsoft Explore Intern</h3>
+                        <p class="location-date">Redmond, WA</p>
+                        <p class="location-date">May 2024 - August 2024</p>
+        
+                        <p class="description"> 
+                            I collaborated with two other Explore interns on the 
+                            Microsoft Edge Consumer team to develop a new feature 
+                            for the Edge Sidebar. Our feature focused on enhancing 
+                            the user experience by optimizing the sidebar's performance.
+                        </p>
+                    </div>
+
+                    <!-- Experience Card 2 -->
+                    <div class="experience-card" onclick="openModal(this)">
+                        <h3>Incoming Microsoft SWE Intern</h3>
+                        <p class="location-date">Microsoft, Redmond, WA</p>
+                        <p class="location-date">August 2026 - Present</p>
+                        <p class="description">
+                            Next summer, I will returning to Microsoft as a Software
+                            Engineering Intern on the Microsoft Edge Consumer team.
+                        </p>
+                    </div>
+
+                    <!-- Experience Card 3 -->
+                    <div class="experience-card" onclick="openModal(this)">
+                        <h3>B[U]ILT Infrastructure Director</h3> 
+                        <p class="location-date">University of Illinois at Urbana-Champaign, Urbana, IL</p>
+                        <p class="location-date">May 2024 - Present</p>
+                        <p class="description">
+                            B[U]ILT stands for Black, Latinx, Indigenous, and 
+                            Underrepresented Minorities in Tech. Our 
+                            organization serves as a resource for 
+                            underrepresented students by connecting them to 
+                            professional and academic opportunities in tech-related 
+                            fields. Within B[U]ILT, I lead a committee of members
+                            in managing and executing all technical initiatives. I 
+                            oversee task assignments, set project deadlines, and 
+                            ensure that each initiative stays on track to achieve 
+                            its objectives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id = "about"></section>
+            <div class="about-me">
+                <h2>About Me</h2>
+                <div class="description">
+                    <!-- Technical about me -->
+                    <p>
+                        I'm a third-year Computer Science student at the University of Illinois at 
+                        Urbana-Champaign. I am pursuing software engineering 
+                        opportunities where I can apply the skills I've developed in 
+                        areas such as coding, algorithm design, and system architecture. 
+                        I'm eager to contribute to teams that create impactful, real-world 
+                        software solutions and help drive innovation. 
+                    </p>
+                    <!-- Personal About me -->
+                    <p>
+                        In my free time, I enjoy going to the gym, playing video games, and playing volleyball.
+                        I am also a huge fan of the Pokemon series and have been playing the games since I was a kid.
+                    </p>
+                    <h3>Technical Skills / Programming Languages</h3>
+                    <div class="technical">
+                        <div>Java</div>
+                        <div>Python</div>
+                        <div>C++</div>
+                        <div>C</div>
+                        <div>HTML/CSS</div>
+                        <div>Javascript</div>
+                    </div>
+                    <h3>Coursework</h3>
+                    <div class="technical">
+                        <div>Data Structures</div>
+                        <div>Computer Architecture</div>
+                        <div>Linear Algebra</div>
+                        <div>Software Design Lab</div>
+                        <div>Systems Programming</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class ="footer" id = "contact">
+            <div class="contact">
+                <h2>Contact Me</h2>
+                <p>Email: jonesbolden85@gmail.com</p>  
+            </div>
+            <img src="assets/umbreon.gif" alt="umbreon">
+        </footer>
     </body>
 </html>
