@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "CS498RK MP1",
   "scripts": {
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack",
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider && webpack-dev-server --open",
-    "watch": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --watch"
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider; webpack-dev-server",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider; webpack"
   },
   "author": "UIUC Web Programming Staff",
   "license": "ISC",
