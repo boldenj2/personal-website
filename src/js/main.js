@@ -167,7 +167,7 @@ function handleExperienceCardClick() {
 handleExperienceCardClick();
 
 
-document.addEventListener('DOMContentLoaded', () => {
+const imageCarousel = document.addEventListener('DOMContentLoaded', () => {
     // Select both images and videos within the carousel
     const mediaItems = document.querySelectorAll('.carousel-images img, .carousel-images video');
     let currentIndex = 0;
