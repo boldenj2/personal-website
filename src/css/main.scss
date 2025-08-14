@@ -326,30 +326,68 @@ button {
     }
 }
 
-/* Footer  with contact my and umbreon */
-
+/* Footer with contact left, social links centered, and umbreon right */
 .footer {
     background-color: #333;
     color: white;
-    text-align: center;
-    padding: 40px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-    margin-top: 20px;
+    padding: 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    div {
-        margin-left: 20px;
+    
+    .contact {
+        flex: 1;
         text-align: left;
+        padding-left: 20px;
+        
+        h2 {
+            margin: 0 0 10px 0;
+        }
+        
+        p {
+            margin: 0;
+        }
     }
-
-    img {
-        width: 90px;
-        height: auto;
-        margin-right: 20px;
+    
+    .footer-center {
+        flex: 1;
+        text-align: center;
+        
+        .footer-links {
+            margin-bottom: 8px;
+            
+            a {
+                display: inline-block;
+                margin: 0 8px;
+                
+                img {
+                    height: 28px;
+                    width: 28px;
+                    vertical-align: middle;
+                    transition: transform 0.3s ease;
+                }
+                
+                &:hover img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        
+        .copyright {
+            font-size: 0.95em;
+            color: #888;
+            margin: 0;
+        }
+    }
+    
+    .footer-right {
+        flex: 1;
+        text-align: right;
+        
+        img {
+            width: 90px;
+            height: auto;
+            margin-right: 20px;
+        }
     }
 }
