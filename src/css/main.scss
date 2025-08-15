@@ -122,13 +122,10 @@ section {
 .Intro .personal-links {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 10px;
-    margin: 10px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform: translateY(100%);
+    margin: 10px 0;
+    width: 300px;
 }
 
 .Intro .personal-links a {
