@@ -1,5 +1,3 @@
-/* Your JS here. */
-
 //  Function that shrinks the navbar when the user scrolls down the page.
 const shrinkStickyNavigationBar = window.addEventListener('scroll', function() {
     const navbar = document.querySelector('nav.sticky-navbar');
@@ -170,7 +168,15 @@ handleExperienceCardClick();
 const imageCarousel = document.addEventListener('DOMContentLoaded', () => {
     // Select both images and videos within the carousel
     const mediaItems = document.querySelectorAll('.carousel-images img, .carousel-images video');
+    const carousel = document.querySelector('.carousel');
     let currentIndex = 0;
+
+    // Touch/swipe variables
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+    const minSwipeDistance = 50; // Minimum distance for a swipe
 
     function changeMedia(direction) {
         // Hide the current media item and pause video if it's a video
@@ -192,6 +198,22 @@ const imageCarousel = document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function handleSwipe() {
+        const horizontalDistance = touchEndX - touchStartX;
+        const verticalDistance = Math.abs(touchEndY - touchStartY);
+        
+        // Only register as swipe if horizontal movement is greater than vertical (to avoid conflicts with scrolling)
+        if (Math.abs(horizontalDistance) > minSwipeDistance && Math.abs(horizontalDistance) > verticalDistance) {
+            if (horizontalDistance > 0) {
+                // Swipe right - go to previous image
+                changeMedia(-1);
+            } else {
+                // Swipe left - go to next image
+                changeMedia(1);
+            }
+        }
+    }
+
     // Show the first media item and play if it's a video
     mediaItems[currentIndex].classList.add('active');
     if (mediaItems[currentIndex].tagName.toLowerCase() === 'video') {
@@ -201,4 +223,23 @@ const imageCarousel = document.addEventListener('DOMContentLoaded', () => {
     // Add event listeners for carousel controls
     document.querySelector('.prev').addEventListener('click', () => changeMedia(-1));
     document.querySelector('.next').addEventListener('click', () => changeMedia(1));
+
+    // Add touch event listeners for mobile swipe functionality
+    if (carousel) {
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        // Prevent default drag behavior on images
+        carousel.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+    }
 });
